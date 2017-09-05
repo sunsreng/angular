@@ -11,6 +11,7 @@ import { NgIfComponent } from './ng-if/ng-if.component';
 import { HiddenComponent } from './hidden/hidden.component';
 import { NgSwitchCaseComponent } from './ng-switch-case/ng-switch-case.component';
 import { NgForComponent } from './ng-for/ng-for.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgForComponent } from './ng-for/ng-for.component';
     NgIfComponent,
     HiddenComponent,
     NgSwitchCaseComponent,
-    NgForComponent
+    NgForComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule
