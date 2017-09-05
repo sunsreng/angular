@@ -2,10 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { CustomPipesComponent } from './custom-pipes/custom-pipes.component';
+import { SummaryPipe } from './custom-pipes/summary.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FavoriteComponent,
+    PipesComponent,
+    CustomPipesComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule
