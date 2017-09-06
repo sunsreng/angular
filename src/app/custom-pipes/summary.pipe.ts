@@ -11,6 +11,5 @@ export class SummaryPipe implements PipeTransform {
     }
     const actualLimit = (limit) ? limit : 50;
     return value.substr(0, actualLimit) + '...';
-}
-
+  }
 }

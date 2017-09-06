@@ -1,4 +1,11 @@
-<app-favorite></app-favorite>
+<app-favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
 <app-pipes></app-pipes>
 <app-custom-pipes></app-custom-pipes>
+<app-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <h2>Body</h2>
+        <p>Body description...</p>
+    </div>
+</app-panel>
 

@@ -6,6 +6,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipesComponent } from './custom-pipes/custom-pipes.component';
 import { SummaryPipe } from './custom-pipes/summary.pipe';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { SummaryPipe } from './custom-pipes/summary.pipe';
     FavoriteComponent,
     PipesComponent,
     CustomPipesComponent,
-    SummaryPipe
+    SummaryPipe,
+    PanelComponent
   ],
   imports: [
     BrowserModule
