@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let course of courses; even as isEven">
+    {{ isEven }} - {{ course.name }}  <span *ngIf="isEven">(EVEN)</span>
+  </li>
+</ul>
+
+<!-- <div *ngIf="courses.length > 0; then listCourses else noCourses"></div>
+<ng-template #listCourses>
+  List of courses
+</ng-template>
+<ng-template #noCourses>
+  No courses yet
+</ng-template> -->

@@ -7,6 +7,10 @@ import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipesComponent } from './custom-pipes/custom-pipes.component';
 import { SummaryPipe } from './custom-pipes/summary.pipe';
 import { PanelComponent } from './panel/panel.component';
+import { NgIfComponent } from './ng-if/ng-if.component';
+import { HiddenComponent } from './hidden/hidden.component';
+import { NgSwitchCaseComponent } from './ng-switch-case/ng-switch-case.component';
+import { NgForComponent } from './ng-for/ng-for.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { PanelComponent } from './panel/panel.component';
     PipesComponent,
     CustomPipesComponent,
     SummaryPipe,
-    PanelComponent
+    PanelComponent,
+    NgIfComponent,
+    HiddenComponent,
+    NgSwitchCaseComponent,
+    NgForComponent
   ],
   imports: [
     BrowserModule
