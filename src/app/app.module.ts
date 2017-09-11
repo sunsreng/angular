@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -12,6 +13,8 @@ import { HiddenComponent } from './hidden/hidden.component';
 import { NgSwitchCaseComponent } from './ng-switch-case/ng-switch-case.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NewCourseFormComponent } from './course/new-course-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,14 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     HiddenComponent,
     NgSwitchCaseComponent,
     NgForComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    NewCourseFormComponent,
+    SignupFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
