@@ -1,5 +1,11 @@
+import { NavbarComponent } from './navbar/navbar.component';
+import { GithubFollowersService } from './services/github-followers.service';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { RouterModule } from '@angular/router';
+import { AppErrorHandler } from './common/app-error-handler';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -19,6 +25,9 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,15 +46,31 @@ import { PostsComponent } from './posts/posts.component';
     SignupFormComponent,
     CourseFormComponent,
     FormBuilderComponent,
-    PostsComponent
+    PostsComponent,
+    HomeComponent,
+    GithubFollowersComponent,
+    GithubProfileComponent,
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'followers/:id/:username', component: GithubProfileComponent},
+      {path: 'followers', component: GithubFollowersComponent},
+      {path: 'posts', component: PostsComponent},
+      {path: '**', component: NotFoundComponent}
+    ])
   ],
-  providers: [],
+  providers: [
+    GithubFollowersService,
+    PostService,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
