@@ -1,3 +1,10 @@
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { NoAccessComponent } from './no-access/no-access.component';
+import { MockBackend } from '@angular/http/testing';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { AuthService } from './services/auth.service';
+import { OrderService } from './services/order.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GithubFollowersService } from './services/github-followers.service';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -7,7 +14,7 @@ import { AppErrorHandler } from './common/app-error-handler';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -51,7 +58,10 @@ import { HomeComponent } from './home/home.component';
     GithubFollowersComponent,
     GithubProfileComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminComponent,
+    LoginComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -59,17 +69,26 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'followers/:id/:username', component: GithubProfileComponent},
-      {path: 'followers', component: GithubFollowersComponent},
-      {path: 'posts', component: PostsComponent},
-      {path: '**', component: NotFoundComponent}
+      { path: '', component: HomeComponent },
+      // { path: 'followers/:id/:username', component: GithubProfileComponent },
+      // { path: 'followers', component: GithubFollowersComponent },
+      // { path: 'posts', component: PostsComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'no-access', component: NoAccessComponent },
+      { path: '**', component: NotFoundComponent }
     ])
   ],
   providers: [
-    GithubFollowersService,
-    PostService,
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    // GithubFollowersService,
+    // PostService,
+    // { provide: ErrorHandler, useClass: AppErrorHandler },
+    OrderService,
+    AuthService,
+    // For creating a mock back-end. You don't need these in a real app.
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })
